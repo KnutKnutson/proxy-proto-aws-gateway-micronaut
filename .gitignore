@@ -1,0 +1,23 @@
+# Gradle
+.gradle/
+bin/
+build/
+
+# IntelliJ
+**/.idea/*
+!**/.idea/codeStyles/
+!**/.idea/inspectionProfiles/
+!**/.idea/scopes/
+**/*.iml
+out/
+
+# Terraform
+*.tfvars
+!config/*.tfvars
+.terraform/
+*.tfstate.*
+
+# Other
+deployment/deployables/
+.DS_Store
+.kotlintest/

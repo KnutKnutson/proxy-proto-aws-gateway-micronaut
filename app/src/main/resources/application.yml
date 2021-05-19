@@ -1,0 +1,11 @@
+micronaut:
+  application:
+    name: proxy-proto
+jackson:
+  serialization:
+    indentOutput: true
+endpoints:
+  beans:
+    enabled: false
+  info:
+    enabled: false
