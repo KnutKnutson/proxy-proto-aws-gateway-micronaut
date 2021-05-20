@@ -22,5 +22,11 @@ class ApiController {
     return HttpResponse.ok<String>()
   }
 
+  @Post(value = "/workaround", consumes = [ProtobufferCodec.PROTOBUFFER_ENCODED])
+  fun workaround(@Body aProto: ByteArray): HttpResponse<*> {
+    println("Received string value ${StringValue.parseFrom(aProto)}")
+    return HttpResponse.ok<String>()
+  }
+
   data class SomeString(val value: String)
 }

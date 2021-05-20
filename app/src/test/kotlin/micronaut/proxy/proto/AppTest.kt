@@ -70,6 +70,19 @@ class AppTest {
         assertEquals(200, response.statusCode)
     }
 
+    @Test
+    fun workaround() {
+        val body = Base64.getEncoder().encodeToString(StringValue.of("a value").toByteArray())
+        val request = proxyRequest(
+            path = "api/workaround", body = body, isBase64Encoded = true,
+            contentType = ProtobufferCodec.PROTOBUFFER_ENCODED
+        )
+
+        val response = handleRequest(request)
+
+        assertEquals(200, response.statusCode)
+    }
+
     private fun handleRequest(request: APIGatewayProxyRequestEvent): LambdaResponse {
         val requestString = mapper.writeValueAsString(request)
         val inputStream = requestString.byteInputStream(Charsets.UTF_8)
